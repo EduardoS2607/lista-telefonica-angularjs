@@ -1,0 +1,19 @@
+<div class="jumbotron jumbotron-fluid" >
+    <form name="contatoForm">
+        <input class="form-control" type="text" ng-model="contato.nome" placeholder="Nome" name="nome" ng-required="true" ng-minlength="10">
+        <input class="form-control" type="text" ng-model="contato.telefone" placeholder="Telefone" name="telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/">
+        <input class="form-control" type="text" ng-model="contato.data" placeholder="Data" name="data" ui-date>
+        <input class="form-control" type="text" ng-model="contato.cep" placeholder="Cep" name="cep" ui-cep>
+        <select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome group by operadora.categoria for operadora in operadoras | orderBy: ' nome'">
+            <option value="">Selecione uma operadora</option>
+        </select>
+    </form>
+    <!-- <div ng-messages="contatoForm.nome.$error"  class="alert alert-danger">
+        <div ng-message="required">Por favor, preencha seu nome</div>
+        <div ng-message="minlength">O campo nome deve ter no minimo 10 caracteres</div>
+    </div>
+    <div ng-show="contatoForm.telefone.$error.pattern " class="alert alert-danger">
+        o campo telefone está incorreto
+    </div> -->
+    <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="!contato.nome || !contato.telefone">Adicionar Contato</button>
+</div>

@@ -1,0 +1,27 @@
+<div class="jumbotron jumbotron-fluid" >
+    <h3>{{app}}</h3>
+    <!-- <ui-alert title="Ops, algo deu errado" message="error"></ui-alert> -->
+    <input class="form-control" type="text" ng-model="busca" placeholder="Digite um nome">
+    <table ng-show="contatos.length>0" class="table">
+        <tr>
+            <th></th>
+            <th><a href="" ng-click="ordenarPor('nome')">Nome</th>
+            <th><a href="" ng-click="ordenarPor('telefone')">Telefone</th>
+            <th><a href="" ng-click="ordenarPor('operadora')">Operadora</th>
+            <th><a href="" ng-click="ordenarPor('data')">Data de inclusão</th>
+                <th><a href="" ng-click="ordenarPor('data')">Cep</th>
+        </tr>
+        <tr ng-class="{selecionado: contato.selecionado}" ng-repeat="contato in contatos ">
+            <td><input type="checkbox" ng-model="contato.selecionado"></td>    
+            <td><a href="#!detalhesContato/{{contato.id}}">{{contato.nome | name | ellipsis:10}}</a></td>
+            <td>{{contato.telefone}}</td>
+            <td>{{contato.operadora.nome}}</td>
+            <td>{{contato.data | date: 'dd/MM/yyyy'}}</td>
+            <td>{{contato.cep}}</td>
+        </tr> 
+    </table>
+    <hr>
+    <a href="#!novoContato" class="btn btn-primary btn-block">Novo Contato</a>
+    <button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-show="isContatoSelecionado(contatos)">Apagar Contato</button>
+    
+</div>

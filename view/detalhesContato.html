@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid">
+    <h4>Detalhes do Contato</h4>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><p>Nome:</p> {{contato.nome}}</td>
+            </tr>
+            <tr>
+                <td><p>Telefone:</p> {{contato.telefone}}</td>
+            </tr>
+            <tr>
+                <td><p>Operadora:</p> {{contato.operadora.nome}}</td>
+            </tr>
+            <tr>
+                <td><p>Cep:</p> {{contato.cep}}</td>
+            </tr>
+            <tr>
+                <td><p>Data:</p> {{contato.data | date:"dd/MM/yyyy"}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#!contatos" class="btn btn-primary btn-block" >Voltar</a>
+
+</div>
